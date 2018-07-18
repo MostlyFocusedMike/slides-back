@@ -23,8 +23,8 @@ vid = Video.create(user: tom, youtube_vid: "7BIM0JnIQqo", desc: "A cat falls ove
 vid.questions.create(user: bob, content: "here's a q", timecode: "12")
 
 slide1 = Slide.create(video: vid, title: "Section One")
-slide2 = Slide.create(video: vid, title: "Section Two")
-slide3 = Slide.create(video: vid, title: "Section Three")
+slide2 = Slide.create(video: vid, title: "Section Two", start: 5)
+slide3 = Slide.create(video: vid, title: "Section Three", start: 10)
 
 slide1.sections.create(kind: 0, content: "Here's some text 1", order: 0)
 slide1.sections.create(kind: 1, content: "here's \nsome \n<h1>code</h1> 1", desc: "", order: 1)
