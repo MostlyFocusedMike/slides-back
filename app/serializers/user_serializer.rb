@@ -3,9 +3,14 @@ class UserSerializer < ActiveModel::Serializer
 
   def videos 
     self.object.videos.map do |video|
+      topics = video.topics.map do |topic|
+        {id: topic.id, content: topic.content}
+      end
       {id: video.id,
        youtube_vid: video.youtube_vid,
-       desc: video.desc
+       desc: video.desc,
+       topics: topics
+
       }
     end
   end 

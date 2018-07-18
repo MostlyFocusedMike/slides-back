@@ -20,6 +20,8 @@ tom = User.create(username: "tom", bio: "I'm just a test user, ho hum", email: "
 bob = User.create(username: "bob", bio: "I'm just a test questioner, ho hum", email: "bob@gmail.com", password: "1234", pic_link: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cat03.jpg/1200px-Cat03.jpg") 
 vid = Video.create(user: tom, youtube_vid: "7BIM0JnIQqo", desc: "A cat falls over")
 
+topic = Topic.create(content: "lecture")
+vid.video_topics.create(topic: topic)
 vid.questions.create(user: bob, content: "here's a q", timecode: "12")
 
 slide1 = Slide.create(video: vid, title: "Section One")
