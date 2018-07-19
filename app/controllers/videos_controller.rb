@@ -1,11 +1,11 @@
 class VideosController < ApplicationController
   before_action :set_video, only: [:show]
   def index 
-    render json: Video.all
+    render json: Video.all, each_serializer: AllVideosSerializer
   end 
 
   def show 
-    render json: @video 
+    render json: @video, serializer: SingleVideoSerializer
   end 
 
   private 
