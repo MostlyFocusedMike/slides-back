@@ -21,6 +21,9 @@ bob = User.create(username: "bob", bio: "I'm just a test questioner, ho hum", em
 vid = Video.create(user: tom, youtube_vid: "7BIM0JnIQqo", desc: "A cat falls over")
 
 topic = Topic.create(content: "lecture")
+Topic.create(content: "Coding Tutorial")
+Topic.create(content: "Review")
+Topic.create(content: "Cooking Tutorial")
 vid.video_topics.create(topic: topic)
 vid.questions.create(user: bob, content: "here's a q", timecode: "12")
 
