@@ -1,6 +1,9 @@
 class VideoSerializer < ActiveModel::Serializer
-  attributes :id, :youtube_vid, :desc, :user, :topics, :slides
-
+  attributes :id, :youtubeVid, :desc, :user, :topics, :slides
+  
+  def youtubeVid
+    self.object.youtube_vid 
+  end 
   def topics 
     selected = self.object.topics.map do |topic|
       {id: topic.id, content: topic.content}
@@ -22,12 +25,12 @@ class VideoSerializer < ActiveModel::Serializer
          order: section.order,
          content: section.content,
          desc: section.desc,
-         show_desc: section.show_desc
+         showDesc: section.show_desc
         }
       end 
       { 
         id: slide.id,
-        video_id: slide.video_id,
+        videoId: slide.video_id,
         start: slide.start,
         title: slide.title,
         sections: sections
