@@ -25,7 +25,7 @@ class VideoSerializer < ActiveModel::Serializer
          show_desc: section.show_desc
         }
       end 
-      return { 
+      { 
         id: slide.id,
         video_id: slide.video_id,
         start: slide.start,
