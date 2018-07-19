@@ -1,9 +1,5 @@
 class AllVideosSerializer < ActiveModel::Serializer
-  attributes :id, :desc, :youtubeVid,  :user, :topics
-  def youtubeVid
-    self.object.youtube_vid 
-  end 
-
+  attributes :id, :desc, :youtube_vid,  :user, :topics
   def user
     {username: self.object.user.username, id: self.object.user.id}
   end

@@ -18,17 +18,17 @@ class SingleVideoSerializer < AllVideosSerializer
     self.object.slides.map do |slide| 
       sections = slide.sections.map do |section|
         {id: section.id,
-         slideId: section.slide_id,
+         slide_id: section.slide_id,
          kind: section.kind,
          order: section.order,
          content: section.content,
          desc: section.desc,
-         showDesc: section.show_desc
+         show_desc: section.show_desc
         }
       end 
       { 
         id: slide.id,
-        videoId: slide.video_id,
+        video_id: slide.video_id,
         start: slide.start,
         title: slide.title,
         sections: sections
