@@ -1,9 +1,16 @@
 class VideoSerializer < ActiveModel::Serializer
   attributes :id, :youtube_vid, :desc, :topics, :slides, 
   def topics 
-    self.object.topics.map do |topic|
+    selected = self.object.topics.map do |topic|
       {id: topic.id, content: topic.content}
     end 
+    others = Topic.all.map do |topic|
+      {id: topic.id, content: topic.content}
+    end.delete_if {|topic| selected.include?(topic)} 
+    return {
+      selected: selected,
+      others: others
+    }
   end 
   def slides 
     self.object.slides.map do |slide| 
