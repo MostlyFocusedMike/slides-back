@@ -6,6 +6,17 @@ class ApplicationController < ActionController::API
     JWT.encode(payload, ENV['token_secret'], 'HS256')
     # your code should be in another file that is .gitignore'd, use a gem like 'figaro' to manage
   end
+
+  def give_token_to(user)
+    {
+      id: user[:id],
+      username: user[:username],
+      bio: user[:bio],
+      pic_link: user[:pic_link],
+      token: issue_token({id: user.id}),
+      videos: user.videos,
+    }
+  end 
  
   def current_user
     @user ||= User.find_by(id: user_id)

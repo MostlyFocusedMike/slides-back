@@ -12,15 +12,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      user_hash = {
-        id: @user[:id],
-        username: @user[:username],
-        bio: @user[:bio],
-        pic_link: @user[:pic_link],
-        token: issue_token({id: @user.id}),
-        videos: @user.videos,
-      }
-      render json: user_hash, adapter: nil
+      # method from Application Controller to give signed up 
+      # users a token
+      render json: give_token_to(@user), adapter: nil
     else 
       render json: @user.errors.messages 
     end 
