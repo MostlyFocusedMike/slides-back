@@ -3,7 +3,7 @@ class ApplicationController < ActionController::API
  # this will run before every single action gets called, make sure you skip_before_action in the appropriate places
 
   def issue_token(payload)
-    JWT.encode(payload, ENV['secret'], 'HS256')
+    JWT.encode(payload, ENV['token_secret'], 'HS256')
     # your code should be in another file that is .gitignore'd, use a gem like 'figaro' to manage
   end
  
