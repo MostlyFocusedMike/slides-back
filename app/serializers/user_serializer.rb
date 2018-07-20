@@ -1,5 +1,6 @@
 class UserSerializer < ActiveModel::Serializer
   attributes :id, :username, :bio, :pic_link, :videos
+
   def videos 
     self.object.videos.map do |video|
       topics = video.topics.map do |topic|
@@ -9,7 +10,6 @@ class UserSerializer < ActiveModel::Serializer
        youtube_vid: video.youtube_vid,
        desc: video.desc,
        topics: topics
-
       }
     end
   end 

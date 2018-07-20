@@ -9,9 +9,18 @@ class UsersController < ApplicationController
   end 
 
   def create 
-    @user = User.create(user_params)
+    @user = User.new(user_params)
+
     if @user.save
-      render json: @user
+      user_hash = {
+        id: @user[:id],
+        username: @user[:username],
+        bio: @user[:bio],
+        pic_link: @user[:pic_link],
+        token: issue_token({id: @user.id}),
+        videos: @user.videos,
+      }
+      render json: user_hash, adapter: nil
     else 
       render json: @user.errors.messages 
     end 
