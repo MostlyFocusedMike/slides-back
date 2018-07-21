@@ -14,7 +14,7 @@ class ApplicationController < ActionController::API
       bio: user[:bio],
       pic_link: user[:pic_link],
       token: issue_token({id: user.id}),
-      videos: user.videos,
+      videos: user.videos
     }
   end 
  

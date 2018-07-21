@@ -2,10 +2,11 @@ class Api::V1::AuthController < ApplicationController
   # skip_before_action :authorized, only: [:create, :show]
 
   def create
+    byebug
     user = User.find_by(username: params[:username])
 
     if user && user.authenticate(params[:password])
-      render json: {username: user.username, id: user.id, token: issue_token({id: user.id})}
+      render json: give_token_to(user)
     else
       render({json: {error: 'User is invalid'}, status: 401})
     end
