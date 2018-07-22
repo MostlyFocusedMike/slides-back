@@ -9,12 +9,14 @@ class UsersController < ApplicationController
   end 
 
   def create 
+    # when a user signs up, the return json matches
+    # the log in route now, but still not the show
     @user = User.new(user_params)
 
     if @user.save
       # method from Application Controller to give signed up 
       # users a token
-      render json: give_token_to(@user), adapter: nil
+      render json: user_token_hash(@user), adapter: nil
     else 
       render json: @user.errors.messages 
     end 

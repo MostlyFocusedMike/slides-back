@@ -2,21 +2,29 @@ class ApplicationController < ActionController::API
     # before_action :authorized
  # this will run before every single action gets called, make sure you skip_before_action in the appropriate places
 
-  def issue_token(payload)
+  def new_token(payload)
     JWT.encode(payload, ENV['token_secret'], 'HS256')
-    # your code should be in another file that is .gitignore'd, use a gem like 'figaro' to manage
   end
 
-  def give_token_to(user)
+  def hash_of(user)
+    # hash version of user, sans password, for auth#show
+    # this lets us add a token to the hash
     {
       id: user[:id],
       username: user[:username],
       bio: user[:bio],
       pic_link: user[:pic_link],
-      token: issue_token({id: user.id}),
-      videos: user.videos
+      videos: user.videos # this will need to be handled to match serialized data
     }
   end 
+
+  def user_token_hash(user)
+    {
+      user: hash_of(user),
+      token: new_token({id: user.id})
+    }
+  end 
+
  
   def current_user
     @user ||= User.find_by(id: user_id)
@@ -28,7 +36,7 @@ class ApplicationController < ActionController::API
  
   def decoded_token
     begin
-       JWT.decode(request.headers['Authorization'], ENV['secret'], true, {:algorithm => 'HS256'})
+       JWT.decode(request.headers['Authorization'], ENV['token_secret'], true, {:algorithm => 'HS256'})
     rescue JWT::DecodeError
       [{}]
     end
