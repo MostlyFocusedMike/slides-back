@@ -3,9 +3,9 @@ class Api::V1::AuthController < ApplicationController
 
   def create
     # when a user logs in they go here
-    user = User.find_by(username: params[:username])
+    user = User.find_by(username: params[:user][:username])
 
-    if user && user.authenticate(params[:password])
+    if user && user.authenticate(params[:user][:password])
       render json: user_token_hash(user) 
     else
       render({json: {error: 'User is invalid'}, status: 401})
