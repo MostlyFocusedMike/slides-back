@@ -3,7 +3,6 @@ class Api::V1::AuthController < ApplicationController
 
   def create
     # when a user logs in they go here
-    byebug
     user = User.find_by(username: params[:username])
 
     if user && user.authenticate(params[:password])
@@ -13,10 +12,10 @@ class Api::V1::AuthController < ApplicationController
     end
   end
 
-  def show
-    byebug
+  def show 
+    # user reauth comes here
     if current_user
-      render json: hash_of(current_user), status: 200
+      render json: {user: hash_of(current_user)}, status: 200
     else
       render json: {error: 'Invalid token'}, status: 401
     end
