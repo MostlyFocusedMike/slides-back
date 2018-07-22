@@ -7,21 +7,15 @@ class ApplicationController < ActionController::API
   end
 
   def hash_of(user)
-    # hash version of user, sans password, for auth#show
-    # this lets us add a token to the hash
-    {
-      id: user[:id],
-      username: user[:username],
-      bio: user[:bio],
-      pic_link: user[:pic_link],
-      videos: user.videos # this will need to be handled to match serialized data
+    # hash version of user, sent back to front end for authentication
+    {id: user[:id],
+     username: user[:username] 
     }
   end 
 
   def user_token_hash(user)
-    {
-      user: hash_of(user),
-      token: new_token({id: user.id})
+    {user: hash_of(user),
+     token: new_token({id: user.id})
     }
   end 
 
