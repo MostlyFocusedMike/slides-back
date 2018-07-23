@@ -28,8 +28,10 @@ vid.video_topics.create(topic: topic)
 vid.questions.create(user: bob, content: "here's a q", timecode: "12")
 
 slide1 = Slide.create(video: vid, title: "Section One")
-slide2 = Slide.create(video: vid, title: "Section Two", start: 5)
-slide3 = Slide.create(video: vid, title: "Section Three", start: 10)
+slide2 = Slide.create(video: vid, title: "Section Two", start: 3)
+slide3 = Slide.create(video: vid, title: "Section Three", start: 5)
+slide4 = Slide.create(video: vid, title: "Section Four", start: 7)
+slide5 = Slide.create(video: vid, title: "Section Five", start: 9)
 
 slide1.sections.create(kind: 0, content: "Here's some text 1", order: 0)
 slide1.sections.create(kind: 1, content: "here's \nsome \n\t<h1>code</h1> 1", desc: "", order: 1)
@@ -46,5 +48,12 @@ slide3.sections.create(kind: 1, content: "here's \nsome \n\t<h1>code</h1> 3", de
 slide3.sections.create(kind: 2, content: "http://mostlyfocused.com/", desc: "I'm a link 3", show_desc: true, order: 1)
 slide3.sections.create(kind: 3, content: "https://i.imgflip.com/1u1nea.jpg", desc: "I'm a picture 3", show_desc:true, order: 2)
 
+slide4.sections.create(kind: 0, content: "Here's some text 4", order: 0)
+slide4.sections.create(kind: 1, content: "here's \nsome \n\t<h1>code</h1> 4", desc: "", order: 4)
+slide4.sections.create(kind: 2, content: "http://mostlyfocused.com/", desc: "I'm a link 4", show_desc: true, order: 1)
+slide4.sections.create(kind: 3, content: "https://media.giphy.com/media/32b3S2YQbby2A/giphy.gif", desc: "I'm a picture 4", show_desc:true, order: 3)
 
-
+slide5.sections.create(kind: 0, content: "Here's some text 5", order: 1)
+slide5.sections.create(kind: 1, content: "here's \nsome \n\t<h1>code</h1> 5", desc: "", order: 2)
+slide5.sections.create(kind: 2, content: "http://mostlyfocused.com/", desc: "I'm a link 5", show_desc: true, order: 4)
+slide5.sections.create(kind: 3, content: "https://media.giphy.com/media/s8t6Ym0zHnLb2/giphy.gif", desc: "I'm a picture 5", show_desc:true, order: 3)
