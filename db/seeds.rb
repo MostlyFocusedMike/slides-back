@@ -32,19 +32,19 @@ slide2 = Slide.create(video: vid, title: "Section Two", start: 5)
 slide3 = Slide.create(video: vid, title: "Section Three", start: 10)
 
 slide1.sections.create(kind: 0, content: "Here's some text 1", order: 0)
-slide1.sections.create(kind: 1, content: "here's \nsome \n<h1>code</h1> 1", desc: "", order: 1)
-slide1.sections.create(kind: 2, content: "www.url.com", desc: "I'm a link 1", show_desc: true, order: 2)
-slide1.sections.create(kind: 3, content: "www.picurl.com", desc: "I'm a picture 1", show_desc:true, order: 3)
+slide1.sections.create(kind: 1, content: "here's \nsome \n\t<h1>code</h1> 1", desc: "", order: 1)
+slide1.sections.create(kind: 2, content: "http://mostlyfocused.com/", desc: "I'm a link 1", show_desc: true, order: 2)
+slide1.sections.create(kind: 3, content: "https://i.imgflip.com/lvja4.jpg", desc: "I'm a picture 1", show_desc:true, order: 3)
 
 slide2.sections.create(kind: 0, content: "Here's some text 2", order: 3)
-slide2.sections.create(kind: 1, content: "here's \nsome \n<h1>code</h1> 2", desc: "", order: 1)
-slide2.sections.create(kind: 2, content: "www.url.com", desc: "I'm a link 2", show_desc: true, order: 0)
-slide2.sections.create(kind: 3, content: "www.picurl.com", desc: "I'm a picture 2", show_desc:true, order: 2)
+slide2.sections.create(kind: 1, content: "here's \nsome \n\t<h1>code</h1> 2", desc: "", order: 1)
+slide2.sections.create(kind: 2, content: "http://mostlyfocused.com/", desc: "I'm a link 2", show_desc: true, order: 0)
+slide2.sections.create(kind: 3, content: "https://ih1.redbubble.net/image.302444639.0997/flat,1000x1000,075,f.jpg", desc: "I'm a picture 2", show_desc:true, order: 2)
 
 slide3.sections.create(kind: 0, content: "Here's some text 3", order: 0)
-slide3.sections.create(kind: 1, content: "here's \nsome \n<h1>code</h1> 3", desc: "", order: 3)
-slide3.sections.create(kind: 2, content: "www.url.com", desc: "I'm a link 3", show_desc: true, order: 1)
-slide3.sections.create(kind: 3, content: "www.picurl.com", desc: "I'm a picture 3", show_desc:true, order: 2)
+slide3.sections.create(kind: 1, content: "here's \nsome \n\t<h1>code</h1> 3", desc: "", order: 3)
+slide3.sections.create(kind: 2, content: "http://mostlyfocused.com/", desc: "I'm a link 3", show_desc: true, order: 1)
+slide3.sections.create(kind: 3, content: "https://i.imgflip.com/1u1nea.jpg", desc: "I'm a picture 3", show_desc:true, order: 2)
 
 
 
