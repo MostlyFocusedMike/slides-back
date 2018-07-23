@@ -15,10 +15,10 @@ Topic.destroy_all
 VideoTopic.destroy_all
 
 
-tom = User.create(username: "tom", bio: "I'm just a test user, ho hum", email: "tom@gmail.com", password: "1234", pic_link: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cat03.jpg/1200px-Cat03.jpg") 
+tom = User.create(username: "tom", bio: "I'm just a test user, ho hum", email: "tom@gmail.com", password: "1234", pic_link: "https://vetstreet.brightspotcdn.com/dims4/default/f6e3702/2147483647/thumbnail/180x180/quality/90/?url=https%3A%2F%2Fvetstreet-brightspot.s3.amazonaws.com%2F17%2Fa85b40b3a511e092fe0050568d634f%2Ffile%2Fhub-cats-kitten.jpg") 
 
 bob = User.create(username: "bob", bio: "I'm just a test questioner, ho hum", email: "bob@gmail.com", password: "1234", pic_link: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cat03.jpg/1200px-Cat03.jpg") 
-vid = Video.create(user: tom, youtube_vid: "7BIM0JnIQqo", desc: "A cat falls over")
+vid = Video.create(user: tom, youtube_vid: "2g811Eo7K8U", desc: "A cat falls over")
 
 topic = Topic.create(content: "lecture")
 Topic.create(content: "Coding Tutorial")
