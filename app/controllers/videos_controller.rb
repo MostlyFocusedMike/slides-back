@@ -21,6 +21,8 @@ class VideosController < ApplicationController
         db_slide.sections.create(section)
       end 
     end
+
+    render json: {id: video.id}
   end 
   private 
     def video_params
