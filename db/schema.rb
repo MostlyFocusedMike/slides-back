@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2018_07_18_030447) do
   create_table "slides", force: :cascade do |t|
     t.integer "video_id"
     t.integer "start", default: 0
+    t.string "timecode", default: "0:00"
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
