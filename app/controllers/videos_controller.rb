@@ -9,8 +9,9 @@ class VideosController < ApplicationController
   end 
   
   def create
-    user = User.find(params["videos"]["0"]["user"]["id"])
-    video = user.videos.create(params["videos"]["0"].permit("desc", "youtube_vid"))
+    videoId = params["videos"].keys[0]
+    user = User.find(params["videos"][videoId]["user"]["id"])
+    video = user.videos.create(params["videos"][videoId].permit("desc", "youtube_vid"))
     slides = params["slides"]
     sections = params["sections"]
     slides.each do |k,slide| 
